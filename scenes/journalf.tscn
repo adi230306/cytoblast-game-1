@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4ipaixqp0028"]
+
+[ext_resource type="Script" path="res://scripts/jd.gd" id="1_y82lt"]
+[ext_resource type="Texture2D" uid="uid://btjdxiw0258i0" path="res://assets/We use/book/frame_00_delay-0.07s.png" id="2_yctyf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eh61c"]
+size = Vector2(186, 106.5)
+
+[node name="journal" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_y82lt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(190, 196.75)
+scale = Vector2(0.376, 0.386121)
+texture = ExtResource("2_yctyf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(192, 198)
+shape = SubResource("RectangleShape2D_eh61c")

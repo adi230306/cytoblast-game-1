@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmmrcmrajxdvd"]
+
+[ext_resource type="Texture2D" uid="uid://btjdxiw0258i0" path="res://assets/We use/book/frame_00_delay-0.07s.png" id="1_c5xdj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mkqx2"]
+size = Vector2(497, 273)
+
+[node name="journal2" type="Area2D"]
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_c5xdj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_mkqx2")

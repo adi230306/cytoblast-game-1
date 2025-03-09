@@ -1,0 +1,124 @@
+[gd_scene load_steps=24 format=3 uid="uid://4p0a6ruv1c84"]
+
+[ext_resource type="Script" path="res://scripts/journal.gd" id="1_ggyum"]
+[ext_resource type="Texture2D" uid="uid://btjdxiw0258i0" path="res://assets/We use/book/frame_00_delay-0.07s.png" id="2_262l1"]
+[ext_resource type="Texture2D" uid="uid://ccd55q5biluti" path="res://assets/We use/book/frame_01_delay-0.07s.png" id="3_js6ca"]
+[ext_resource type="Texture2D" uid="uid://cq0l4jjfgn655" path="res://assets/We use/book/frame_02_delay-0.07s.png" id="4_r4hpq"]
+[ext_resource type="Texture2D" uid="uid://62lxflhqtevx" path="res://assets/We use/book/frame_03_delay-0.07s.png" id="5_fs2d0"]
+[ext_resource type="Texture2D" uid="uid://qt3ntlqoam57" path="res://assets/We use/book/frame_04_delay-0.07s.png" id="6_a72at"]
+[ext_resource type="Texture2D" uid="uid://bcap6lxr4hvm4" path="res://assets/We use/book/frame_05_delay-0.07s.png" id="7_q4p52"]
+[ext_resource type="Texture2D" uid="uid://dpd0hsaeioygw" path="res://assets/We use/book/frame_06_delay-0.07s.png" id="8_i3vxs"]
+[ext_resource type="Texture2D" uid="uid://7cveltkilgm1" path="res://assets/We use/book/frame_07_delay-0.07s.png" id="9_dclql"]
+[ext_resource type="Texture2D" uid="uid://b4j2r58ujyi55" path="res://assets/We use/book/frame_09_delay-0.07s.png" id="10_h8t2h"]
+[ext_resource type="Texture2D" uid="uid://52nkubbl88eh" path="res://assets/We use/book/frame_08_delay-0.07s.png" id="10_y713r"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_67m42"]
+atlas = ExtResource("2_262l1")
+region = Rect2(0, 0, 500, 281)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0adb"]
+atlas = ExtResource("2_262l1")
+region = Rect2(0, 0, 500, 281)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_chk2g"]
+atlas = ExtResource("3_js6ca")
+region = Rect2(0, 0, 500, 281)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_onb83"]
+atlas = ExtResource("4_r4hpq")
+region = Rect2(0, 0, 500, 281)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4c5j"]
+atlas = ExtResource("5_fs2d0")
+region = Rect2(0, 0, 500, 281)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfri7"]
+atlas = ExtResource("6_a72at")
+region = Rect2(0, 0, 500, 281)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kmpo"]
+atlas = ExtResource("7_q4p52")
+region = Rect2(0, 0, 500, 281)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ji7yi"]
+atlas = ExtResource("8_i3vxs")
+region = Rect2(0, 0, 500, 281)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1f4t"]
+atlas = ExtResource("9_dclql")
+region = Rect2(0, 0, 500, 281)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebib3"]
+atlas = ExtResource("10_y713r")
+region = Rect2(0, 0, 500, 281)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nraut"]
+atlas = ExtResource("10_h8t2h")
+region = Rect2(0, 0, 500, 281)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o3g4t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_67m42")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0adb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_chk2g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_onb83")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4c5j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfri7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7kmpo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ji7yi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1f4t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ebib3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nraut")
+}],
+"loop": false,
+"name": &"turn",
+"speed": 10.0
+}]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_ggyum")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_o3g4t")
+animation = &"turn"
+autoplay = "idle"
+frame = 9
+frame_progress = 1.0
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -151.0
+offset_top = -100.0
+offset_right = -17.0
+offset_bottom = 84.0

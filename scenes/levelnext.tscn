@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://b35ybittwsvjn"]
+
+[ext_resource type="Texture2D" uid="uid://b17ciu78iweci" path="res://assets/We use/Legacy Collection/Assets/Misc/Hit/Sprites/hit1.png" id="1_5vdwn"]
+[ext_resource type="Script" path="res://scripts/levelnext.gd" id="1_eiwe2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a2lh7"]
+
+[node name="levelnext" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_eiwe2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(165, 58)
+scale = Vector2(3.31119, 3.48691)
+texture = ExtResource("1_5vdwn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(167, 62)
+scale = Vector2(2.84015, -2.52654)
+shape = SubResource("CircleShape2D_a2lh7")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

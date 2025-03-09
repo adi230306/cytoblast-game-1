@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dikibd0a37kf8"]
+
+[ext_resource type="Texture2D" uid="uid://w4hg35b6cfn2" path="res://assets/We use/Forest Map/Layer_0002_7.png" id="1_nwtn7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1e1qn"]
+size = Vector2(40.75, 8.75)
+
+[node name="platform" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4, -160.875)
+scale = Vector2(0.0431034, 0.0349937)
+texture = ExtResource("1_nwtn7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-3.375, -163.375)
+shape = SubResource("RectangleShape2D_1e1qn")
+one_way_collision = true

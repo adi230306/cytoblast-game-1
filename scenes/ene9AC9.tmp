@@ -1,0 +1,68 @@
+[gd_scene load_steps=10 format=3 uid="uid://cg7t44x8wkxri"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_fwnfn"]
+[ext_resource type="Texture2D" uid="uid://brqhvr0pthn7n" path="res://assets/We use/sprites/slime_green.png" id="2_i1elm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ldxe"]
+atlas = ExtResource("2_i1elm")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bdl1"]
+atlas = ExtResource("2_i1elm")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xwk0c"]
+atlas = ExtResource("2_i1elm")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fsm4l"]
+atlas = ExtResource("2_i1elm")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m04ki"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3ldxe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8bdl1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xwk0c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fsm4l")
+}],
+"loop": false,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vtc2c"]
+size = Vector2(12, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sarjp"]
+size = Vector2(230, 19)
+
+[node name="enemy" type="CharacterBody2D"]
+script = ExtResource("1_fwnfn")
+speed = null
+attack_range = null
+damage = null
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_m04ki")
+animation = &"new_animation"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_vtc2c")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 6.5)
+shape = SubResource("RectangleShape2D_sarjp")
+
+[node name="Timer" type="Timer" parent="."]

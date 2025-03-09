@@ -1,0 +1,116 @@
+[gd_scene load_steps=15 format=3 uid="uid://dbu8qac2yidim"]
+
+[ext_resource type="Texture2D" uid="uid://di3cqcopjjmui" path="res://assets/We use/sprites/slime_purple.png" id="1_kp3lr"]
+[ext_resource type="Script" path="res://scripts/2_nd.gd" id="1_r8rld"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bm71d"]
+atlas = ExtResource("1_kp3lr")
+region = Rect2(0, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hmtsn"]
+atlas = ExtResource("1_kp3lr")
+region = Rect2(24, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xib82"]
+atlas = ExtResource("1_kp3lr")
+region = Rect2(48, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehj1c"]
+atlas = ExtResource("1_kp3lr")
+region = Rect2(72, 0, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f1l2p"]
+atlas = ExtResource("1_kp3lr")
+region = Rect2(0, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmo0h"]
+atlas = ExtResource("1_kp3lr")
+region = Rect2(24, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4rs2i"]
+atlas = ExtResource("1_kp3lr")
+region = Rect2(48, 24, 24, 24)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o6rd1"]
+atlas = ExtResource("1_kp3lr")
+region = Rect2(72, 24, 24, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o85eo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bm71d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hmtsn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xib82")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehj1c")
+}],
+"loop": false,
+"name": &"idle1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f1l2p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmo0h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4rs2i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o6rd1")
+}],
+"loop": false,
+"name": &"walk1",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r7rur"]
+size = Vector2(14, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xc18t"]
+size = Vector2(242, 12)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qnlle"]
+radius = 8.0
+
+[node name="2nd" type="CharacterBody2D"]
+script = ExtResource("1_r8rld")
+
+[node name="ani" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_o85eo")
+animation = &"walk1"
+autoplay = "idle1"
+
+[node name="attackco" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6)
+shape = SubResource("RectangleShape2D_r7rur")
+
+[node name="detecti" type="Area2D" parent="."]
+position = Vector2(0, 6)
+
+[node name="coli" type="CollisionShape2D" parent="detecti"]
+shape = SubResource("RectangleShape2D_xc18t")
+
+[node name="enemyhi" type="Area2D" parent="."]
+position = Vector2(0, 6)
+
+[node name="CollisionShape" type="CollisionShape2D" parent="enemyhi"]
+shape = SubResource("CircleShape2D_qnlle")
+
+[node name="RayCast2D1" type="RayCast2D" parent="."]
+position = Vector2(0, 6)
+target_position = Vector2(11, 0)
+
+[node name="RayCast2D3" type="RayCast2D" parent="."]
+position = Vector2(0, 6)
+target_position = Vector2(-12, 0)
+
+[node name="cooldown2" type="Timer" parent="."]

@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://37nu8oaeob2j"]
+
+[ext_resource type="PackedScene" uid="uid://b0f7ehw7kv1wk" path="res://scenes/wbc.tscn" id="1_31x2d"]
+[ext_resource type="PackedScene" uid="uid://dikibd0a37kf8" path="res://scenes/platform.tscn" id="2_vdbtd"]
+[ext_resource type="PackedScene" uid="uid://c4ipaixqp0028" path="res://scenes/journalf.tscn" id="3_7rhul"]
+[ext_resource type="PackedScene" uid="uid://b35ybittwsvjn" path="res://scenes/levelnext.tscn" id="4_0hulj"]
+
+[node name="Level_5" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+format = 2
+
+[node name="wbc" parent="." instance=ExtResource("1_31x2d")]
+
+[node name="Camera2D" type="Camera2D" parent="wbc"]
+zoom = Vector2(5, 5)
+
+[node name="platform" parent="." instance=ExtResource("2_vdbtd")]
+
+[node name="journal" parent="." instance=ExtResource("3_7rhul")]
+
+[node name="levelnext" parent="." instance=ExtResource("4_0hulj")]
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
